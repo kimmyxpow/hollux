@@ -11,7 +11,8 @@
   "main": "tailwind.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "npx tailwindcss -i tailwind.css -o style.css --watch"
+    "watch": "npx tailwindcss -i tailwind.css -o style.css --watch",
+    "minify": "npx tailwindcss -i tailwind.css -o style.css --minify"
   },
   "keywords": [],
   "author": "",

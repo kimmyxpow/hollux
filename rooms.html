@@ -20,7 +20,7 @@
                 </svg>
                 <button x-on:click="menu = (window.innerWidth >= 768) ? true : !menu" class="md:hidden bg-gray-800 text-white h-10 w-10 grid place-items-center text-sm font-semibold hover:bg-gray-600 ring ring-offset-2 ring-transparent focus:ring-gray-800 focus:bg-gray-800 transition-all duration-300"><i class='bx bx-menu' ></i></button>
                 <div x-show="menu" x-on:click.outside="menu = (window.innerWidth >= 768) ? true : false" x-transition.duration.300ms class="flex md:flex-row flex-col md:items-center md:space-x-10 md:space-y-0 space-y-2 md:relative absolute md:top-auto top-[120%] md:p-0 py-4  md:inset-x-auto inset-x-0 md:px-0 px-8 bg-white">
-                    <a class="text-sm font-medium block after:content-[''] after:block after:h-0.5 after:bg-gray-800 text-gray-600 after:rounded-full after:w-0 hover:after:w-4/5 after:transition-all after:duration-300" href="#">Home</a>
+                    <a class="text-sm font-medium block after:content-[''] after:block after:h-0.5 after:bg-gray-800 text-gray-600 after:rounded-full after:w-0 hover:after:w-4/5 after:transition-all after:duration-300" href="./index.html">Home</a>
                     <div x-data="{ open: false }">
                         <button x-on:click="open = ! open" class="text-sm font-medium block w-full text-left after:content-[''] after:block after:h-0.5 after:bg-gray-800 text-gray-600 after:rounded-full after:w-0 hover:after:w-4/5 after:transition-all after:duration-300">Facilities</button>
                         <div    x-show="open"
@@ -30,7 +30,7 @@
                                 x-transition:leave-start="opacity-100 scale-100"
                                 x-transition:leave-end="opacity-0 scale-90"
                                 class="absolute grid sm:grid-cols-2 gap-4 bg-white shadow-2xl shadow-gray-500/20 inset-x-0 p-6 top-full rounded-md transition-all duration-300 md:max-h-[none] max-h-[40vh]  overflow-y-auto">
-                            <a href="#" class="flex items-center space-x-2 group">
+                            <a href="./facilities.html" class="flex items-center space-x-2 group">
                                 <img class="h-16 w-16 object-cover rounded-tl-xl rounded-br-xl" src="./img/fasilitas-1.jpg" alt="">
                                 <div>
                                     <span class="font-bold text-gray-800">Swimming pool</span>
@@ -40,7 +40,7 @@
                                 </div>
                                 <i class='bx bx-right-arrow-alt text-gray-600 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' ></i>
                             </a>
-                            <a href="#" class="flex items-center space-x-2 group">
+                            <a href="./facilities.html" class="flex items-center space-x-2 group">
                                 <img class="h-16 w-16 object-cover rounded-tl-xl rounded-br-xl" src="./img/fasilitas-2.jpg" alt="">
                                 <div>
                                     <span class="font-bold text-gray-800">Library</span>
@@ -50,7 +50,7 @@
                                 </div>
                                 <i class='bx bx-right-arrow-alt text-gray-600 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' ></i>
                             </a>
-                            <a href="#" class="flex items-center space-x-2 group">
+                            <a href="./facilities.html" class="flex items-center space-x-2 group">
                                 <img class="h-16 w-16 object-cover rounded-tl-xl rounded-br-xl" src="./img/fasilitas-3.jpg" alt="">
                                 <div>
                                     <span class="font-bold text-gray-800">Shopping Center</span>
@@ -60,7 +60,7 @@
                                 </div>
                                 <i class='bx bx-right-arrow-alt text-gray-600 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' ></i>
                             </a>
-                            <a href="#" class="flex items-center space-x-2 group">
+                            <a href="./facilities.html" class="flex items-center space-x-2 group">
                                 <img class="h-16 w-16 object-cover rounded-tl-xl rounded-br-xl" src="./img/fasilitas-5.jpg" alt="">
                                 <div>
                                     <span class="font-bold text-gray-800">Cafes and Restaurants</span>
@@ -70,7 +70,7 @@
                                 </div>
                                 <i class='bx bx-right-arrow-alt text-gray-600 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' ></i>
                             </a>
-                            <a href="#" class="flex items-center space-x-2 group">
+                            <a href="./facilities.html" class="flex items-center space-x-2 group">
                                 <img class="h-16 w-16 object-cover rounded-tl-xl rounded-br-xl" src="./img/fasilitas-4.jpg" alt="">
                                 <div>
                                     <span class="font-bold text-gray-800">Kitchen</span>
@@ -80,7 +80,7 @@
                                 </div>
                                 <i class='bx bx-right-arrow-alt text-gray-600 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' ></i>
                             </a>
-                            <a href="#" class="flex items-center space-x-2 group">
+                            <a href="./facilities.html" class="flex items-center space-x-2 group">
                                 <img class="h-16 w-16 object-cover rounded-tl-xl rounded-br-xl" src="./img/fasilitas-6.jpg" alt="">
                                 <div>
                                     <span class="font-bold text-gray-800">Bathroom</span>
@@ -92,8 +92,8 @@
                             </a>
                         </div>
                     </div>
-                    <a class="text-sm font-medium block after:content-[''] after:block after:h-0.5 after:bg-gray-800 text-gray-600 after:rounded-full after:w-0 hover:after:w-4/5 after:transition-all after:duration-300" href="#">Room</a>
-                    <a class="text-sm font-medium block after:content-[''] after:block after:h-0.5 after:bg-gray-800 text-gray-600 after:rounded-full after:w-0 hover:after:w-4/5 after:transition-all after:duration-300" href="#">About</a>
+                    <a class="text-sm font-medium block after:content-[''] after:block after:h-0.5 after:bg-gray-800 text-gray-600 after:rounded-full after:w-0 hover:after:w-4/5 after:transition-all after:duration-300" href="./rooms.html">Room</a>
+                    <a class="text-sm font-medium block after:content-[''] after:block after:h-0.5 after:bg-gray-800 text-gray-600 after:rounded-full after:w-0 hover:after:w-4/5 after:transition-all after:duration-300" href="./about.html">About</a>
                     <div class="space-x-1">
                         <button class="bg-gray-800 text-white py-2 px-8 text-sm font-semibold hover:bg-gray-600 ring ring-offset-2 ring-transparent focus:ring-gray-800 focus:bg-gray-800 transition-all duration-300">Login</button>
                         <button class="border border-gray-800 text-gray-800 py-2 px-8 text-sm font-semibold hover:bg-gray-200 ring ring-offset-2 ring-transparent focus:ring-gray-800 focus:bg-gray-800 focus:text-white transition-all duration-300">Register</button>
@@ -108,9 +108,9 @@
                     <h1 class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Room Choices For You</h1>
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">We have a choice of 14 different room types that you can choose according to your needs</p>
                 </div>
-                <div class="grid grid-cols-3 gap-10">
+                <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -144,7 +144,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -195,7 +195,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -212,7 +212,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -229,7 +229,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -246,7 +246,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -263,7 +263,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -280,7 +280,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -297,7 +297,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -314,7 +314,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -331,7 +331,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
@@ -348,7 +348,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="aspect-[8/6]  lg:w-96 md:w-80 w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
+                        <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                             <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="./img/1.jpg" alt="">
                         </div>
                         <div class="space-y-2">
