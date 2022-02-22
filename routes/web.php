@@ -46,6 +46,15 @@ Route::namespace('App\Http\Livewire')->group(function () {
     //? Routes that can be accessed by logging in or without logging in
     Route::get('/', Index::class)->name('index');
     Route::get('/about', About::class)->name('about');
+
+    Route::prefix('/facilities')->namespace('Facility')->name('facilities.')->group(function () {
+        Route::get('/{facility:code}', Index::class)->name('index');
+    });
+
+    Route::prefix('/rooms')->namespace('Room')->name('rooms.')->group(function () {
+        Route::get('/', Index::class)->name('index');
+        Route::get('/{room:code}', Show::class)->name('show');
+    });
 });
 
 require __DIR__ . '/auth.php';
