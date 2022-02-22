@@ -1,5 +1,0 @@
-Wanna Fixed:
-
-- Btn menu admin dashboard
-- Responsive rooms page
-- Responsive input checkin/out
