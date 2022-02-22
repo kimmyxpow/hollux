@@ -1,64 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Hollux
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Hollux is a hotel website that can be used for online reservations. Built using the [TALL Stack](https://tallstack.dev/): [Tailwind CSS 3](https://tailwindcss.com/), [AlpineJS 3](https://alpinejs.dev/), [Livewire 2](https://laravel-livewire.com/), [Laravel 9](https://laravel.com/). I actually made the UI here myself using Tailwind CSS and AplineJS without using any templates at all.
 
-## About Laravel
+## Roles
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+There are 3 roles in this application, namely admin, receptionist, and user or guest.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Admin
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Admin can manage room data, facilities, and manage galleries that will be displayed to users or guests.
 
-## Learning Laravel
+### Receptionist
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The receptionist can check the check-in or check-out data from the user or guest and confirm it.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### User
 
-## Laravel Sponsors
+The user here is a guest for this Hollux hotel. Users can make online reservations and review facilities and rooms if desired.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Feature
 
-### Premium Partners
+- Doing room CRUD (Finished)
+- Doing facility CRUD (Finished)
+- Doing gallery CRUD (Finished)
+- Doing user CRUD (Not finished yet)
+- Updating the about page via the admin dashboard (Finished)
+- Make a reservation (Not finished yet)
+- Check reservation data (Not finished yet)
+- Do a review (Not finished yet)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Clone?
 
-## Contributing
+If you want to clone this repository, go ahead. But don't admit that this is your creation :)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Download assets for
 
-## Code of Conduct
+I have provided a seeder for this application, so I have also provided assets to support the seeder, if you want to download the assets, you can clone the [hollux-assets](https://github.com/abinoval/hollux-assets) respository in the storage/app/public folder and rename the hollux-assets folder to img.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## My other projects
 
-## Security Vulnerabilities
+Don't forget to stop by my other projects! Don't forget to star too *hehe*
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Image to Palette
 
-## License
+Link: [https://github.com/abinoval/image-to-palette](Github) | [https://ksana.in/itp](Website)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Desc: This website is a website for generating colors/palettes from inputted images.
+
+### My Code
+
+Link: [https://github.com/abinoval/my-code](Github) | [http://mycode.great-site.net/](Website)
+
+Desc: Code snippets that can be used to share your code easily.
+
+### PowQuran
+
+Link: [https://github.com/abinoval/PowQuran](Github) | [https://abinoval.github.io/PowQuran/](Website)
+
+Desc: PowQuran is an online Al-Quran that can be accessed on a cellphone or laptop easily, recite and listen to the holy verses wherever you are!
+
+### Kartini Tribute Page
+
+Link: [https://github.com/abinoval/kartini-tribute-page](Github) | [http://radenayukartini.great-site.net/](Website)
+
+Desc: Tribute Page R.A. Kartini by me :)
+
+### My Name
+
+Link: [https://github.com/abinoval/myname](Github) | [https://ksana.in/my](Website)
+
+Desc: Easy-to-use name generator from different countries and genders.
