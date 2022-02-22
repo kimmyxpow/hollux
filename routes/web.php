@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('App\Http\Livewire')->group(function () {
     //? Routes that can be accessed only when logging in
-    Route::middleware(['auth', 'verified'])->group(function () {
+    Route::middleware(['verified'])->group(function () {
         //? Route for dashboard page
         Route::prefix('/dashboard')->namespace('Dashboard')->name('dashboard.')->group(function () {
             //? Route for admin dashboard page

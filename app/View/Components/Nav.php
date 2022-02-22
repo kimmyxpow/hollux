@@ -20,9 +20,9 @@ class Nav extends Component
         $this->facilities = Facility::latest()->orderBy('type')->orderBy('name')->get();
 
         if (auth()->check()) {
-            // if (auth()->user()->hasRole('visitor')) {
-            //     $this->dashboardLink = route('dashboard.user');
-            // }
+            if (auth()->user()->hasRole('user')) {
+                $this->dashboardLink = route('dashboard.user.index');
+            }
 
             // if (auth()->user()->hasRole('recepsionist')) {
             //     $this->dashboardLink = route('dashboard.recepsionist');

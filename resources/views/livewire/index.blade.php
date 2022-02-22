@@ -7,35 +7,70 @@
                     Find hotel rooms with 14 complete choices to accompany your trip. We offer many attractive facilities for the convenience of our clients. Interested?
                 </p>
                 @auth
-                    @if (!auth()->user()->hasRole('user'))
-                        <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
-                            <div class="form-control">
-                                <label class="label" for="">Check In</label>
-                                <input min="2022-01-01" class="w-full input" type="date">
-                            </div>
-                            <div class="form-control">
-                                <label class="label" for="">Check Out</label>
-                                <input min="2022-01-01" class="w-full input"  type="date">
-                            </div>
-                            <button x-on:click="open = true" class="btn">Order</button>
-                            <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
-                                <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
-                                <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
-                                    <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4 text-center">
-                                        <i class='bx bx-info-circle text-8xl text-blue-600'></i>
-                                        <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">You Can't Do It</h2>
-                                        <p class="tracking-wide text-gray-600 sm:text-base text-sm">
-                                            Your role is not a user so you can't place an order!
-                                        </p>
-                                        <div class="flex space-x-2 justify-center">
-                                            <button type="button" x-on:click="open = false" class="btn">
-                                                Oh.. Okay
-                                            </button>
+                    @if (auth()->user()->hasVerifiedEmail())
+                        @if (!auth()->user()->hasRole('user'))
+                            <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
+                                <div class="form-control">
+                                    <label class="label" for="">Check In</label>
+                                    <input min="2022-01-01" class="w-full input" type="date">
+                                </div>
+                                <div class="form-control">
+                                    <label class="label" for="">Check Out</label>
+                                    <input min="2022-01-01" class="w-full input"  type="date">
+                                </div>
+                                <button x-on:click="open = true" class="btn">Order</button>
+                                <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
+                                    <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
+                                    <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
+                                        <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4 text-center">
+                                            <i class='bx bx-info-circle text-8xl text-blue-600'></i>
+                                            <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">You Can't Do It</h2>
+                                            <p class="tracking-wide text-gray-600 sm:text-base text-sm">
+                                                Your role is not a user so you can't place an order!
+                                            </p>
+                                            <div class="flex space-x-2 justify-center">
+                                                <button type="button" x-on:click="open = false" class="btn">
+                                                    Oh.. Okay
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @else
+                            <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
+                                <div class="form-control">
+                                    <label class="label" for="">Check In</label>
+                                    <input min="2022-01-01" class="w-full input" type="date">
+                                </div>
+                                <div class="form-control">
+                                    <label class="label" for="">Check Out</label>
+                                    <input min="2022-01-01" class="w-full input"  type="date">
+                                </div>
+                                <button x-on:click="open = true" class="btn">Order</button>
+                                <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
+                                    <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
+                                    <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
+                                        <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4 text-center">
+                                            <i class='bx bx-info-circle text-8xl text-blue-600'></i>
+                                            <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Are You Sure?</h2>
+                                            <p class="tracking-wide text-gray-600 sm:text-base text-sm">
+                                                Can you explain why you want to cancel this reservation?
+                                            </p>
+                                            <textarea name="" id="" rows="6" class="w-full"></textarea>
+                                            <div class="flex space-x-2 justify-center">
+                                                <button type="button" x-on:click="open = false" class="btn">
+                                                    Confirm
+                                                </button>
+                                                <button type="button" x-on:click="open = false" class="btn btn-outline">
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     @else
                         <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
                             <div class="form-control">
@@ -52,23 +87,22 @@
                                 <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
                                     <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4 text-center">
                                         <i class='bx bx-info-circle text-8xl text-blue-600'></i>
-                                        <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Are You Sure?</h2>
+                                        <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Email Verification First</h2>
                                         <p class="tracking-wide text-gray-600 sm:text-base text-sm">
-                                            Can you explain why you want to cancel this reservation?
+                                            You must verify your email first after logging in!
                                         </p>
-                                        <textarea name="" id="" rows="6" class="w-full"></textarea>
                                         <div class="flex space-x-2 justify-center">
-                                            <button type="button" x-on:click="open = false" class="btn">
-                                            Confirm
-                                        </button>
-                                        <button type="button" x-on:click="open = false" class="btn btn-outline">
-                                            Cancel
-                                        </button>
+                                            <a href="{{ route('verification.notice') }}" class="btn">
+                                                Verification
+                                            </a>
+                                            <button type="button" x-on:click="open = false" class="btn btn-outline">
+                                                Later
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                 @else
                     <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
