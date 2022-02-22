@@ -56,24 +56,107 @@
                 </p>
             </div>
             <hr>
-            <div class="grid gap-4">
-                <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="form-control">
-                        <label for="check_in" class="label">{{ __('Check In') }}</label>
-                        <input class="w-full input" type="date" name="" id="check_in"/>
+            @auth
+                @if (!auth()->user()->hasRole('user'))
+                    <div x-data="{ open: false }">
+                        <div class="grid gap-4">
+                            <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="form-control">
+                                    <label for="check_in" class="label">{{ __('Check In') }}</label>
+                                    <input class="w-full input" type="date" name="check_in" id="check_in"/>
+                                </div>
+                                <div class="form-control">
+                                    <label for="check_out" class="label">{{ __('Check Out') }}</label>
+                                    <input class="w-full input" type="date" name="check_out" id="check_out"/>
+                                </div>
+                            </div>
+                            <div class="form-control">
+                                <label for="total_rooms" class="label">{{ __('Total Rooms') }}</label>
+                                <input class="w-full input" type="number" name="" id="total_rooms"/>
+                            </div>
+                            <p class="tracking-wide text-gray-600 sm:text-base text-sm">{{ __('The total amount to be paid is ') }}<span class="font-bold">$400</span>. <span class="font-bold">{{ __('Paid directly at the hotel, not online.') }}</span></p>
+                            <button x-on:click="open = true" class="btn">{{ __('Booking') }}</button>
+                        </div>
+                        <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
+                            <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
+                            <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
+                                <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4 text-center">
+                                    <i class='bx bx-info-circle text-8xl text-blue-600'></i>
+                                    <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">You Can't Do It</h2>
+                                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">
+                                        Your role is not a user so you can't place an order!
+                                    </p>
+                                    <div class="flex space-x-2 justify-center">
+                                        <button type="button" x-on:click="open = false" class="btn">
+                                            Oh.. Okay
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-control">
-                        <label for="check_out" class="label">{{ __('Check Out') }}</label>
-                        <input class="w-full input" type="date" name="" id="check_out"/>
+                @else
+                    <div class="grid gap-4">
+                        <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="form-control">
+                                <label for="check_in" class="label">{{ __('Check In') }}</label>
+                                <input class="w-full input" type="date" name="check_in" id="check_in"/>
+                            </div>
+                            <div class="form-control">
+                                <label for="check_out" class="label">{{ __('Check Out') }}</label>
+                                <input class="w-full input" type="date" name="check_out" id="check_out"/>
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="total_rooms" class="label">{{ __('Total Rooms') }}</label>
+                            <input class="w-full input" type="number" name="" id="total_rooms"/>
+                        </div>
+                        <p class="tracking-wide text-gray-600 sm:text-base text-sm">{{ __('The total amount to be paid is ') }}<span class="font-bold">$400</span>. <span class="font-bold">{{ __('Paid directly at the hotel, not online.') }}</span></p>
+                        <button x-on:click="open: true;" class="btn">{{ __('Booking') }}</button>
+                    </div>
+                @endif
+            @else
+                <div x-data="{ open: false }">
+                    <div class="grid gap-4">
+                        <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="form-control">
+                                <label for="check_in" class="label">{{ __('Check In') }}</label>
+                                <input class="w-full input" type="date" name="check_in" id="check_in"/>
+                            </div>
+                            <div class="form-control">
+                                <label for="check_out" class="label">{{ __('Check Out') }}</label>
+                                <input class="w-full input" type="date" name="check_out" id="check_out"/>
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="total_rooms" class="label">{{ __('Total Rooms') }}</label>
+                            <input class="w-full input" type="number" name="total_rooms" id="total_rooms"/>
+                        </div>
+                        <p class="tracking-wide text-gray-600 sm:text-base text-sm">{{ __('The total amount to be paid is ') }}<span class="font-bold">$400</span>. <span class="font-bold">{{ __('Paid directly at the hotel, not online.') }}</span></p>
+                        <button x-on:click="open = true" class="btn">{{ __('Booking') }}</button>
+                    </div>
+                    <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
+                        <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
+                        <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
+                            <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4 text-center">
+                                <i class='bx bx-info-circle text-8xl text-blue-600'></i>
+                                <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Must Login First</h2>
+                                <p class="tracking-wide text-gray-600 sm:text-base text-sm">
+                                    You must login first before making a reservation!
+                                </p>
+                                <div class="flex space-x-2 justify-center">
+                                    <a href="{{ route('login') }}" class="btn">
+                                        Login
+                                    </a>
+                                    <button type="button" x-on:click="open = false" class="btn btn-outline">
+                                        Later
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-control">
-                    <label for="number_of_rooms" class="label">{{ __('Number of Rooms') }}</label>
-                    <input class="w-full input" type="number" name="" id="number_of_rooms"/>
-                </div>
-                <p class="tracking-wide text-gray-600 sm:text-base text-sm">{{ __('The total amount to be paid is ') }}<span class="font-bold">$400</span>. <span class="font-bold">{{ __('Paid directly at the hotel, not online.') }}</span></p>
-                <button class="btn">{{ __('Booking') }}</button>
-            </div>
+            @endauth
         </aside>
         {{-- <div class="space-y-4 lg:col-span-8 border-t pt-10">
             <h2 class="text-2xl text-gray-800 font-bold">{{ __('Reviews') }}</h2>
