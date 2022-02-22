@@ -43,30 +43,30 @@ Don't forget to stop by my other projects! Don't forget to star too *hehe*
 
 ### Image to Palette
 
-Link: [https://github.com/abinoval/image-to-palette](Github) | [https://ksana.in/itp](Website)
+Link: [Github](https://github.com/abinoval/image-to-palette) | [Website](https://ksana.in/itp)
 
 Desc: This website is a website for generating colors/palettes from inputted images.
 
 ### My Code
 
-Link: [https://github.com/abinoval/my-code](Github) | [http://mycode.great-site.net/](Website)
+Link: [Github](https://github.com/abinoval/my-code) | [Website](http://mycode.great-site.net/)
 
 Desc: Code snippets that can be used to share your code easily.
 
 ### PowQuran
 
-Link: [https://github.com/abinoval/PowQuran](Github) | [https://abinoval.github.io/PowQuran/](Website)
+Link: [Github](https://github.com/abinoval/PowQuran) | [Website](https://abinoval.github.io/PowQuran/)
 
 Desc: PowQuran is an online Al-Quran that can be accessed on a cellphone or laptop easily, recite and listen to the holy verses wherever you are!
 
 ### Kartini Tribute Page
 
-Link: [https://github.com/abinoval/kartini-tribute-page](Github) | [http://radenayukartini.great-site.net/](Website)
+Link: [Github](https://github.com/abinoval/kartini-tribute-page) | [Website](http://radenayukartini.great-site.net/)
 
 Desc: Tribute Page R.A. Kartini by me :)
 
 ### My Name
 
-Link: [https://github.com/abinoval/myname](Github) | [https://ksana.in/my](Website)
+Link: [Github](https://github.com/abinoval/myname) | [Website](https://ksana.in/my)
 
 Desc: Easy-to-use name generator from different countries and genders.
