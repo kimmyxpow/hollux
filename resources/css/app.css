@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-['poppins'];
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-block bg-gray-800 border border-gray-800 text-white py-2 px-8 font-semibold hover:bg-gray-600 ring ring-offset-2 ring-transparent focus:ring-gray-800 focus:bg-gray-800 transition-all duration-300 rounded-tr-lg rounded-bl-lg text-center cursor-pointer;
+    }
+
+    .btn-sm {
+        @apply text-sm;
+    }
+
+    .btn-outline {
+        @apply bg-white text-gray-800 hover:bg-gray-200 focus:bg-gray-800 focus:text-white;
+    }
+
+    .btn-icon {
+        @apply h-10 w-10 grid place-items-center text-sm p-0 rounded-tr-xl rounded-bl-xl;
+    }
+
+    .select, .input, .textarea {
+        @apply rounded-tr-lg rounded-bl-lg focus:ring focus:ring-offset-2 focus:ring-gray-800 focus:border-gray-800 transition-all duration-300;
+    }
+
+    .checkbox {
+        @apply rounded-tr rounded-bl focus:ring-gray-800 focus:border-gray-800 focus:text-gray-800 checked:text-gray-800 transition-all duration-300;
+    }
+
+    .form-control {
+	    @apply grid gap-1;
+    }
+
+    .form-control .label {
+    	@apply font-bold text-gray-800;
+    }
+
+    .form-control .invalid {
+        @apply text-red-600 text-sm italic font-medium; 
+    }
+}
