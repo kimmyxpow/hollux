@@ -24,7 +24,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.admin.index')->layoutData(['title' => 'Dashboard Admin | Hollux']);
+        return view('livewire.dashboard.admin.index')->layoutData(['title' => 'Admin Dashboard | Hollux']);
     }
 
     public function mount()

@@ -56,6 +56,6 @@ class Room extends Model
      */
     public function reviews(): HasMany
     {
-        return $this->hasMany(RoomReview::class);
+        return $this->hasMany(RoomReview::class, 'room_code', 'code');
     }
 }

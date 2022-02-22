@@ -28,33 +28,33 @@
        <section class="flex min-h-screen max-h-screen overflow-hidden relative" x-data="{ sidebar: (window.innerWidth >= 1024) ? true : false }">
             <aside x-show="sidebar" x-on:click.outside="sidebar = (window.innerWidth >= 1024) ? true : false" x-transition.duration.300ms class="lg:w-[400px] w-[300px] max-w-full px-8 overflow-y-auto py-4 mt-14 lg:static absolute inset-y-0 bg-white">
                 <div class="space-y-6">
-                    @if (auth()->user()->hasRole('visitor'))
+                    @if (auth()->user()->hasRole('user'))
                         <div class="space-y-2">
                             <span class="font['poppins'] uppercase tracking-widest text-gray-400 font-bold px-6 text-sm">User</span>
                             <div class="grid gap-2">
-                                <a href="{{ route('dashboard.user') }}" class="{{ !Route::currentRouteNamed('dashboard.user') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
-                                    <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
-                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Dasbboard</span>
+                                <a href="{{ route('dashboard.user.index') }}" class="{{ !Route::currentRouteNamed('dashboard.user.index') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
+                                    <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user.index') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.index') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Dasbboard</span>
                                 </a>
                             </div>
-                            <div class="grid gap-2">
+                            {{-- <div class="grid gap-2">
                                 <a href="{{ route('dashboard.user.reservations') }}" class="{{ !Route::currentRouteNamed('dashboard.user.reservations') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
                                     <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user.reservations') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
                                     <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reservations') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Reservation</span>
                                 </a>
-                            </div>
-                            <div class="grid gap-2">
+                            </div> --}}
+                            {{-- <div class="grid gap-2">
                                 <a href="{{ route('dashboard.user.room-reviews') }}" class="{{ !Route::currentRouteNamed('dashboard.user.room-reviews') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
                                     <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user.room-reviews') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
                                     <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.room-reviews') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Room Reviews</span>
                                 </a>
-                            </div>
-                            <div class="grid gap-2">
+                            </div> --}}
+                            {{-- <div class="grid gap-2">
                                 <a href="{{ route('dashboard.user.facility-reviews') }}" class="{{ !Route::currentRouteNamed('dashboard.user.facility-reviews') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
                                     <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user.facility-reviews') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
                                     <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.facility-reviews') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Facility Reviews</span>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     @endif
                     @if (auth()->user()->hasRole('admin'))

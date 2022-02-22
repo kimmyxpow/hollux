@@ -40,7 +40,7 @@ class AuthenticatedSessionController extends Controller
         //     return to_route('dashboard.receptionist.index');
         // }
 
-        // return redirect()->intended(RouteServiceProvider::HOME);
+        return to_route('dashboard.user.index');
     }
 
     /**

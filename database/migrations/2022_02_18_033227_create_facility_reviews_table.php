@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('facility_reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('facility_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('facility_code');
+            $table->foreign('facility_code')->references('code')->on('facilities')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('message');
             $table->string('rate');
             $table->date('date');

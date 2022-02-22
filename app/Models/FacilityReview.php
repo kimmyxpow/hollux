@@ -19,6 +19,16 @@ class FacilityReview extends Model
      */
     public function facility(): BelongsTo
     {
-        return $this->belongsTo(Facility::class);
+        return $this->belongsTo(Facility::class, 'facility_code', 'code');
+    }
+
+    /**
+     * Get the user that owns the FacilityReview
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

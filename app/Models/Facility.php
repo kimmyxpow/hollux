@@ -36,7 +36,7 @@ class Facility extends Model
      */
     public function reviews(): HasMany
     {
-        return $this->hasMany(FacilityReview::class);
+        return $this->hasMany(FacilityReview::class, 'facility_code', 'code');
     }
 
     /**
