@@ -37,12 +37,12 @@
                                     <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.index') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Dasbboard</span>
                                 </a>
                             </div>
-                            {{-- <div class="grid gap-2">
-                                <a href="{{ route('dashboard.user.reservations') }}" class="{{ !Route::currentRouteNamed('dashboard.user.reservations') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
-                                    <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user.reservations') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
-                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reservations') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Reservation</span>
+                            <div class="grid gap-2">
+                                <a href="{{ route('dashboard.user.reservations.index') }}" class="{{ !Route::currentRouteNamed('dashboard.user.reservations.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
+                                    <i class="bx bx-receipt text-xl {{ !Route::currentRouteNamed('dashboard.user.reservations.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reservations.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Reservation</span>
                                 </a>
-                            </div> --}}
+                            </div>
                             {{-- <div class="grid gap-2">
                                 <a href="{{ route('dashboard.user.room-reviews') }}" class="{{ !Route::currentRouteNamed('dashboard.user.room-reviews') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
                                     <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user.room-reviews') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>

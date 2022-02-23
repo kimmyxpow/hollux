@@ -135,6 +135,7 @@ class RoomSeeder extends Seeder
                 'code' => bin2hex(random_bytes(20)),
                 'name' => $rooms[$i - 1][0],
                 'total_rooms' => $rooms[$i - 1][1],
+                'available' => $rooms[$i - 1][1],
                 'image' => 'img/rooms/' . $i . '.jpg',
                 'description' => $rooms[$i - 1][2],
                 'explanation' => '<p>' . $rooms[$i - 1][3] . '</p>',

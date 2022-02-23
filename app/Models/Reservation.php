@@ -13,13 +13,23 @@ class Reservation extends Model
     protected $guarded = ['id'];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'code';
+    }
+
+    /**
      * Get the user that owns the Reservation
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(User::class);
     }
 
     /**

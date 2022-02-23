@@ -18,6 +18,7 @@
 }
 
 @layer components {
+    /* Button */
     .btn {
         @apply inline-block bg-gray-800 border border-gray-800 text-white py-2 px-8 font-semibold hover:bg-gray-600 ring ring-offset-2 ring-transparent focus:ring-gray-800 focus:bg-gray-800 transition-all duration-300 rounded-tr-lg rounded-bl-lg text-center cursor-pointer;
     }
@@ -33,7 +34,9 @@
     .btn-icon {
         @apply h-10 w-10 grid place-items-center text-sm p-0 rounded-tr-xl rounded-bl-xl;
     }
+    /* End Button */
 
+    /* Input */
     .select, .input, .textarea {
         @apply rounded-tr-lg rounded-bl-lg focus:ring focus:ring-offset-2 focus:ring-gray-800 focus:border-gray-800 transition-all duration-300;
     }
@@ -53,4 +56,19 @@
     .form-control .invalid {
         @apply text-red-600 text-sm italic font-medium; 
     }
+    /* End Input */
+
+    /* Table */
+    .thead {
+        @apply bg-gray-50;
+    }
+
+    .th {
+        @apply py-3 px-6 sm:text-sm text-xs font-medium tracking-wider text-left text-gray-800 uppercase whitespace-nowrap;
+    }
+
+    .td {
+        @apply py-4 px-6 sm:text-base text-sm text-gray-500 whitespace-nowrap;
+    }
+    /* End Table */
 }

@@ -1135,6 +1135,7 @@ select {
 .prose-sm > :where(:last-child):not(:where([class~="not-prose"] *)) {
   margin-bottom: 0;
 }
+/* Button */
 .btn {
   display: inline-block;
   cursor: pointer;
@@ -1203,6 +1204,8 @@ select {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+/* End Button */
+/* Input */
 .select, .input, .textarea {
   border-top-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
@@ -1256,6 +1259,53 @@ select {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
+/* End Input */
+/* Table */
+.thead {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+.th {
+  white-space: nowrap;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+@media (min-width: 640px) {
+
+  .th {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+.td {
+  white-space: nowrap;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+@media (min-width: 640px) {
+
+  .td {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+/* End Table */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1388,6 +1438,12 @@ select {
 .mb-10 {
   margin-bottom: 2.5rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
 .mt-32 {
   margin-top: 8rem;
 }
@@ -1397,29 +1453,29 @@ select {
 .mb-20 {
   margin-bottom: 5rem;
 }
+.mt-28 {
+  margin-top: 7rem;
+}
 .mt-14 {
   margin-top: 3.5rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.mt-1 {
-  margin-top: 0.25rem;
 }
 .-mr-2 {
   margin-right: -0.5rem;
 }
-.mt-28 {
-  margin-top: 7rem;
-}
 .block {
   display: block;
+}
+.inline-block {
+  display: inline-block;
 }
 .flex {
   display: flex;
 }
 .inline-flex {
   display: inline-flex;
+}
+.table {
+  display: table;
 }
 .grid {
   display: grid;
@@ -1451,11 +1507,11 @@ select {
 .h-10 {
   height: 2.5rem;
 }
-.h-14 {
-  height: 3.5rem;
-}
 .h-20 {
   height: 5rem;
+}
+.h-14 {
+  height: 3.5rem;
 }
 .h-4 {
   height: 1rem;
@@ -1496,11 +1552,11 @@ select {
 .w-10 {
   width: 2.5rem;
 }
-.w-14 {
-  width: 3.5rem;
-}
 .w-20 {
   width: 5rem;
+}
+.w-14 {
+  width: 3.5rem;
 }
 .w-48 {
   width: 12rem;
@@ -1517,6 +1573,9 @@ select {
 .min-w-\[1\.5rem\] {
   min-width: 1.5rem;
 }
+.min-w-full {
+  min-width: 100%;
+}
 .max-w-md {
   max-width: 28rem;
 }
@@ -1529,11 +1588,11 @@ select {
 .max-w-7xl {
   max-width: 80rem;
 }
-.max-w-full {
-  max-width: 100%;
-}
 .max-w-none {
   max-width: none;
+}
+.max-w-full {
+  max-width: 100%;
 }
 .max-w-\[4rem\] {
   max-width: 4rem;
@@ -1686,6 +1745,11 @@ select {
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1695,11 +1759,6 @@ select {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1731,11 +1790,17 @@ select {
 .break-words {
   overflow-wrap: break-word;
 }
+.break-all {
+  word-break: break-all;
+}
 .rounded-md {
   border-radius: 0.375rem;
 }
 .rounded-xl {
   border-radius: 0.75rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 .rounded {
   border-radius: 0.25rem;
@@ -1763,17 +1828,23 @@ select {
 .rounded-bl-2xl {
   border-bottom-left-radius: 1rem;
 }
-.rounded-tl-2xl {
-  border-top-left-radius: 1rem;
+.rounded-tr-3xl {
+  border-top-right-radius: 1.5rem;
 }
-.rounded-br-2xl {
-  border-bottom-right-radius: 1rem;
+.rounded-bl-3xl {
+  border-bottom-left-radius: 1.5rem;
 }
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
 .rounded-bl-lg {
   border-bottom-left-radius: 0.5rem;
+}
+.rounded-tl-2xl {
+  border-top-left-radius: 1rem;
+}
+.rounded-br-2xl {
+  border-bottom-right-radius: 1rem;
 }
 .border {
   border-width: 1px;
@@ -1839,15 +1910,15 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
 }
 .bg-transparent {
   background-color: transparent;
-}
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
@@ -1984,13 +2055,13 @@ select {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .text-base {
   font-size: 1rem;
@@ -2080,13 +2151,13 @@ select {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
 }
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .text-indigo-600 {
   --tw-text-opacity: 1;
@@ -2779,10 +2850,6 @@ select {
 
   .sm\:justify-between {
     justify-content: space-between;
-  }
-
-  .sm\:gap-8 {
-    gap: 2rem;
   }
 
   .sm\:space-x-2 > :not([hidden]) ~ :not([hidden]) {

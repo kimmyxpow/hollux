@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Dashboard\User\Reservation\Proof;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +49,7 @@ Route::namespace('App\Http\Livewire')->group(function () {
 
                 Route::prefix('/reservation')->namespace('Reservation')->name('reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
+                    Route::get('/proof/{reservation:code}', [Proof::class, 'render'])->name('proof');
                 });
             });
         });

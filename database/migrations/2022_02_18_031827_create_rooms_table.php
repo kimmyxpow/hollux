@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('explanation');
             $table->string('rate')->default(0);
             $table->string('price');
+            $table->string('available');
             $table->string('views')->default(0);
             $table->timestamps();
         });

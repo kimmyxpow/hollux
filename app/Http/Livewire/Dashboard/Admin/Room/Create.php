@@ -45,6 +45,7 @@ class Create extends Component
 
         $validatedData['image'] = $this->image->store('img/rooms');
         $validatedData['code'] = bin2hex(random_bytes(20));
+        $validatedData['available'] = $this->total_rooms;
 
         $roomId = Room::create($validatedData);
 
