@@ -54,8 +54,12 @@ Route::namespace('App\Http\Livewire')->group(function () {
                 });
 
                     Route::prefix('/reviews')->namespace('Review')->name('reviews.')->group(function () {
-                        Route::prefix('/rooms')->namespace('Room')->name('rooms.')->group(function () {
-                            Route::get('/', Index::class)->name('index');
+                        Route::namespace('Room')->group(function () {
+                            Route::get('/rooms', Index::class)->name('rooms.index');
+                        });
+
+                        Route::namespace('Facility')->group(function () {
+                            Route::get('/facilities', Index::class)->name('facilities.index');
                         });
                     });
             });

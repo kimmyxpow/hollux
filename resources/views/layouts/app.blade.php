@@ -49,12 +49,12 @@
                                     <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reviews.rooms.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Room Reviews</span>
                                 </a>
                             </div>
-                            {{-- <div class="grid gap-2">
-                                <a href="{{ route('dashboard.user.facility-reviews') }}" class="{{ !Route::currentRouteNamed('dashboard.user.facility-reviews') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
-                                    <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.user.facility-reviews') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
-                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.facility-reviews') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Facility Reviews</span>
+                            <div class="grid gap-2">
+                                <a href="{{ route('dashboard.user.reviews.facilities.index') }}" class="{{ !Route::currentRouteNamed('dashboard.user.reviews.facilities.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
+                                    <i class="bx bx-home-smile text-xl {{ !Route::currentRouteNamed('dashboard.user.reviews.facilities.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reviews.facilities.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Facility Reviews</span>
                                 </a>
-                            </div> --}}
+                            </div>
                         </div>
                     @endif
                     @if (auth()->user()->hasRole('admin'))
