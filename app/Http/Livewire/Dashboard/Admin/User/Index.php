@@ -53,7 +53,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.admin.user.index', ['users' => User::filter(['search' => $this->search, 'filter_role' => $this->filter_role])->latest()->paginate(15)])->layoutData(['title' => 'User Dashboard | Hollux']);
+        return view('livewire.dashboard.admin.user.index', ['users' => User::filter(['search' => $this->search, 'filter_role' => $this->filter_role])->latest()->paginate(50)])->layoutData(['title' => 'User Dashboard | Hollux']);
     }
 
     public function mount()

@@ -59,7 +59,7 @@ class Create extends Component
 
             $rate /= $allReviews->count();
         } else {
-            $rate = $this->star;
+            $rate = 0;
         }
 
         $this->room->update(['rate' => $rate]);
