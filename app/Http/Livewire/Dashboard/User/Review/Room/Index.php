@@ -64,7 +64,7 @@ class Index extends Component
 
             $rate /= $allReviews->count();
         } else {
-            $rate = $this->star;
+            $rate = 0;
         }
 
         $this->review->room->update(['rate' => $rate]);
@@ -93,6 +93,19 @@ class Index extends Component
 
     public function destroy()
     {
+        $allReviews = RoomReview::where('room_code', $this->review->code)->where('code', '<>', $this->review->code)->get();
+
+        $rate = 0;
+
+        if (count($allReviews) > 0) {
+            foreach ($allReviews as $review) {
+                $rate += $review->star;
+            }
+
+            $rate /= $allReviews->count();
+        }
+
+        $this->review->room->update(['rate' => $rate]);
         $this->review->delete();
         $this->emitSelf('review:deleted');
     }

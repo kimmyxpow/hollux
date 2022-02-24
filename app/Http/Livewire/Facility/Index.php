@@ -9,6 +9,27 @@ class Index extends Component
 {
     public $facility;
     public $facilities;
+    public $reviews;
+
+    protected $listeners = ['review:created' => 'reviewCreated', 'review:edited' => 'reviewEdited'];
+
+    public function reviewCreated()
+    {
+        $this->dispatchBrowserEvent('review:created');
+        $this->fill([
+            'facility' => $this->facility,
+            'reviews' => $this->facility->reviews
+        ]);
+    }
+
+    public function reviewEdited()
+    {
+        $this->dispatchBrowserEvent('review:edited');
+        $this->fill([
+            'facility' => $this->facility,
+            'reviews' => $this->facility->reviews
+        ]);
+    }
 
     public function render()
     {
@@ -19,7 +40,8 @@ class Index extends Component
     {
         $this->fill([
             'facility' => $facility,
-            'facilities' => Facility::orderBy('type')->get()
+            'facilities' => Facility::orderBy('type')->get(),
+            'reviews' => $facility->reviews
         ]);
 
         $this->facility->views += 1;

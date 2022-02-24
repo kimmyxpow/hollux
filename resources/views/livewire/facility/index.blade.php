@@ -45,6 +45,55 @@
                 </blockquote>
                 {!! $facility->explanation !!}
             </article>
+            <div class="space-y-4">
+                <h2 class="text-2xl text-gray-800 font-bold">{{ __('Reviews') }}</h2>
+                <div class="space-y-6">
+                    @forelse ($reviews as $review)
+                        <div class="bg-gray-100 p-6 rounded-tr-xl rounded-bl-xl space-y-2">
+                            <div>
+                                @for ($i=1; $i <= $review->star; $i++)
+                                    <i class="bx bx-star text-lg text-orange-500"></i>
+                                @endfor
+                            </div>
+                            <p class="tracking-wide text-gray-800 sm:text-base text-sm">
+                                "{!! nl2br($review->message) !!}"
+                            </p>
+                            <div class="flex items-center gap-2">
+                                <img class="w-10 h-10 rounded-tr-xl rounded-bl-xl" src="{{ asset('storage/' . $review->user->avatar) }}" alt="">
+                                <p class="font-bold text-gray-600 text-sm">
+                                    {{ $review->user->name }}
+                                </p>
+                            </div>
+                        </div>
+                    @empty
+                        <p class="text-gray-600 tracking-wide sm:text-base text-sm">Be the first to review this facility!</p>
+                    @endforelse
+                </div>
+                @if (count($reviews->where('user_id', auth()->id())))
+                    <livewire:facility.review.edit :review="$reviews->firstWhere('user_id', auth()->id())" :facility="$facility" />
+                @else
+                    <livewire:facility.review.create :facility="$facility" />
+                @endif
+            </div>
         </main>
+    </div>
+    <div x-data="{ open: false }">
+        <div x-show="open" @review:created.window="open = true" @review:edited.window="open = true" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
+            <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
+            <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
+                <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4">
+                    <div class="text-center space-y-4">
+                        <i class='bx bx-check-circle text-8xl text-green-600'></i>
+                        <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Review Successfully</h2>
+                        <p class="tracking-wide text-gray-600 sm:text-base text-sm">Your review has been successfully submitted! Thank you for your review!</p>
+                    </div>
+                    <div class="flex space-x-2 justify-center">
+                        <button type="button" x-on:click="open = false" class="btn">
+                            Okay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>

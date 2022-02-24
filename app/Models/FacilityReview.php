@@ -13,6 +13,16 @@ class FacilityReview extends Model
     protected $guarded = ['id'];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'code';
+    }
+
+    /**
      * Get the facility that owns the FacilityReview
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

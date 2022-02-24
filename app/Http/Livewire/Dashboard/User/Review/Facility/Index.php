@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Dashboard\User\Review\Facility;
 
 use Livewire\Component;
-use App\Models\RoomReview;
+use App\Models\FacilityReview;
 
 class Index extends Component
 {
@@ -34,13 +34,13 @@ class Index extends Component
         $this->fill(['reviews' => auth()->user()->facility_reviews]);
     }
 
-    public function edit(RoomReview $roomReview)
+    public function edit(FacilityReview $facilityReview)
     {
         $this->dispatchBrowserEvent('review:edit');
         $this->fill([
-            'review' => $roomReview,
-            'star' => $roomReview->star,
-            'message' => $roomReview->message
+            'review' => $facilityReview,
+            'star' => $facilityReview->star,
+            'message' => $facilityReview->message
         ]);
     }
 
@@ -53,7 +53,7 @@ class Index extends Component
 
         $this->review->update($validatedData);
 
-        $allReviews = RoomReview::where('room_code', $this->review->room->code)->get();
+        $allReviews = FacilityReview::where('facility_code', $this->review->facility->code)->get();
 
         if (count($allReviews) > 0) {
             $rate = 0;
@@ -64,10 +64,10 @@ class Index extends Component
 
             $rate /= $allReviews->count();
         } else {
-            $rate = $this->star;
+            $rate = 0;
         }
 
-        $this->review->room->update(['rate' => $rate]);
+        $this->review->facility->update(['rate' => $rate]);
 
         $this->emitSelf('review:edited');
     }
@@ -81,18 +81,31 @@ class Index extends Component
         }
     }
 
-    public function delete(RoomReview $roomReview)
+    public function delete(FacilityReview $facilityReview)
     {
         $this->dispatchBrowserEvent('review:delete');
         $this->fill([
-            'review' => $roomReview,
-            'star' => $roomReview->star,
-            'message' => $roomReview->message
+            'review' => $facilityReview,
+            'star' => $facilityReview->star,
+            'message' => $facilityReview->message
         ]);
     }
 
     public function destroy()
     {
+        $allReviews = FacilityReview::where('facility_code', $this->review->code)->where('code', '<>', $this->review->code)->get();
+        
+        $rate = 0;
+
+        if (count($allReviews) > 0) {
+            foreach ($allReviews as $review) {
+                $rate += $review->star;
+            }
+
+            $rate /= $allReviews->count();
+        }
+
+        $this->review->facility->update(['rate' => $rate]);
         $this->review->delete();
         $this->emitSelf('review:deleted');
     }

@@ -3,7 +3,7 @@
     <div class="space-y-6">
         @forelse ($reviews as $review)
             <div class="bg-gray-100 p-6 rounded-tr-xl rounded-bl-xl space-y-2">
-                <span class="block text-gray-600 font-bold text-lg">For: <a class="underline" href="{{ route('rooms.show', $review->room->code) }}">{{ $review->room->name }}</a></span>
+                <span class="block text-gray-600 font-bold text-lg">For: <a class="underline" href="{{ route('facilities.index', $review->facility->code) }}">{{ $review->facility->name }}</a></span>
                 <div>
                     @for ($i=1; $i <= $review->star; $i++)
                         <i class="bx bx-star text-lg text-orange-500"></i>
