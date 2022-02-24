@@ -25,9 +25,17 @@ class Create extends Component
     public function store()
     {
         if (!auth()->check()) {
-            return to_route('login');
+            return $this->dispatchBrowserEvent('review:login');
         }
-        
+
+        if (!auth()->user()->hasVerifiedEmail()) {
+            return $this->dispatchBrowserEvent('review:verified');
+        }
+
+        if (!auth()->user()->hasRole('user')) {
+            return $this->dispatchBrowserEvent('review:forbidden');
+        }
+
         $validatedData = $this->validate([
             'message' => ['required'],
             'star' => ['required']
