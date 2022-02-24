@@ -25,8 +25,8 @@ The user here is a guest for this Hollux hotel. Users can make online reservatio
 - Doing gallery CRUD (Finished)
 - Doing user CRUD (Not finished yet)
 - Updating the about page via the admin dashboard (Finished)
-- Make a reservation (Not finished yet)
-- Check reservation data (Not finished yet)
+- Make a reservation (Finished)
+- Check reservation data (Finished)
 - Do a review (Not finished yet)
 
 ## Clone?
