@@ -15,7 +15,15 @@ class Reservation extends Model
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'], fn ($query, $search) =>
-            $query->whereHas('user', fn ($query) => $query->where('name', 'like', "%$search%"))
+            $query->whereHas('user', fn ($query) => $query->where('name', 'like', "%$search%"))->orWhere('code', $search)
+        );
+
+        $query->when($filters['check_in'], fn ($query, $check_in) =>
+            $query->whereDate('check_in', $check_in)
+        );
+
+        $query->when($filters['status'], fn ($query, $status) =>
+            $query->where('status', $status)
         );
     }
 

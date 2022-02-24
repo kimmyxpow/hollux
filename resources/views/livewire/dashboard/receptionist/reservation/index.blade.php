@@ -1,9 +1,24 @@
 <div class="space-y-8">
     <h1 class="text-gray-800 text-3xl font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Reservation</h1>
-    <div>
+    <div class="flex gap-4 items-center flex-wrap">
         <div class="form-control">
             <label for="search" class="label">Search</label>
             <input class='input' type="search" name="search" id="search" wire:model='search'>
+        </div>
+        <div class="form-control">
+            <label for="check_in" class="label">Check In</label>
+            <input class='input' type="date" name="check_in" id="check_in" wire:model='check_in'>
+        </div>
+        <div class="form-control">
+            <label for="status" class="label">Status</label>
+            <select class='select' name="status" id="status" wire:model='status'>
+                <option value="" selected class="capitalize">All</option>
+                <option value="waiting" class="capitalize">waiting</option>
+                <option value="confirmed" class="capitalize">confirmed</option>
+                <option value="check in" class="capitalize">check in</option>
+                <option value="check out" class="capitalize">check out</option>
+                <option value="canceled" class="capitalize">canceled</option>
+            </select>
         </div>
     </div>
     <x-table>
@@ -48,7 +63,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" class="tracking-wide text-gray-600 sm:text-base text-sm">There is nothing here</td>
+                    <td colspan="8" class="td">There is nothing here</td>
                 </tr>
             @endforelse
         </tbody>

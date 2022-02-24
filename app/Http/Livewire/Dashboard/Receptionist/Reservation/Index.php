@@ -12,32 +12,21 @@ class Index extends Component
     use WithPagination;
 
     public $search;
+    public $check_in;
+    public $status;
 
     protected $queryString = [
         'search' => ['except' => ''],
+        'check_in' => ['except' => ''],
+        'status' => ['except' => ''],
     ];
 
     protected $listeners = ['status:confirmed' => 'statusConfirmed', 'status:checkin' => 'statusCheckIn', 'status:checkout' => 'statusCheckOut'];
 
-    public function statusConfirmed()
-    {
-        $this->dispatchBrowserEvent('status:confirmed');
-    }
-
-    public function statusCheckIn()
-    {
-        $this->dispatchBrowserEvent('status:checkin');
-    }
-
-    public function statusCheckOut()
-    {
-        $this->dispatchBrowserEvent('status:checkout');
-    }
-
     public function render()
     {
         return view('livewire.dashboard.receptionist.reservation.index', [
-            'reservations' => Reservation::filter(['search' => $this->search])->latest()->paginate(10)
+            'reservations' => Reservation::filter(['search' => $this->search, 'check_in' => $this->check_in, 'status' => $this->status])->latest()->paginate(10)
         ])->layoutData(['title' => 'Reservation | Hollux']);
     }
 
@@ -63,5 +52,20 @@ class Index extends Component
         $room->available = $room->total_rooms - array_sum($room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray());
         $room->save();
         $this->emitSelf('status:checkout');
+    }
+
+    public function statusConfirmed()
+    {
+        $this->dispatchBrowserEvent('status:confirmed');
+    }
+
+    public function statusCheckIn()
+    {
+        $this->dispatchBrowserEvent('status:checkin');
+    }
+
+    public function statusCheckOut()
+    {
+        $this->dispatchBrowserEvent('status:checkout');
     }
 }
