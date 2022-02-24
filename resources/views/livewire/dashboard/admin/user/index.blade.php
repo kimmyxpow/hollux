@@ -1,6 +1,26 @@
 <div class="space-y-8">
     <h1 class="text-gray-800 text-3xl font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">User</h1>
-    <livewire:dashboard.admin.user.create />
+
+    <div class="space-y-4">
+        <livewire:dashboard.admin.user.create />
+
+        <div class="flex gap-4">
+            <div class="form-control">
+                <label for="search" class="label">Search</label>
+                <input class='input' type="search" name="search" id="search" wire:model='search'>
+            </div>
+            <div class="form-control">
+                <label for="filter_role" class="label">Filter Role</label>
+                <select class='input capitalize' name="filter_role" id="filter_role" wire:model='filter_role'>
+                    <option class="capitalize" value="" selected>All</option>
+                    @foreach ($roles as $role)
+                        <option class="capitalize" value="{{ $role }}">{{ $role }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
+
     <x-table>
         <thead class="thead">
             <tr>

@@ -47,6 +47,17 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'], function ($query, $search) {
+            return $query->where('name', 'like', "%$search%")->orWhere('email', 'like', "%$search%")->orWhere('phone_number', 'like', "%$search%");
+        });
+
+        $query->when($filters['filter_role'], function ($query, $filter_role) {
+            return $query->whereHas('roles', fn ($query) => $query->where('name', $filter_role));
+        });
+    }
+
     /**
      * Get the route key for the model.
      *

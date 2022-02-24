@@ -25,6 +25,14 @@ class Index extends Component
     public $roles;
     public $role;
     public $oldImage;
+    public $search;
+    public $filter_role;
+
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'filter_role' => ['except' => ''],
+    ];
+
 
     protected $listeners = ['user:created' => 'userCreated', 'user:edited' => 'userEdited', 'user:deleted' => 'userDeleted'];
 
@@ -45,7 +53,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.admin.user.index', ['users' => User::latest()->paginate(15)])->layoutData(['title' => 'User Dashboard | Hollux']);
+        return view('livewire.dashboard.admin.user.index', ['users' => User::filter(['search' => $this->search, 'filter_role' => $this->filter_role])->latest()->paginate(15)])->layoutData(['title' => 'User Dashboard | Hollux']);
     }
 
     public function mount()
