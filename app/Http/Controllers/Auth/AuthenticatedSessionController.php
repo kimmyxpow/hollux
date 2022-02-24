@@ -36,9 +36,9 @@ class AuthenticatedSessionController extends Controller
             return to_route('dashboard.admin.index');
         }
 
-        // if (auth()->user()->hasRole('receptionist')) {
-        //     return to_route('dashboard.receptionist.index');
-        // }
+        if (auth()->user()->hasRole('receptionist')) {
+            return to_route('dashboard.receptionist.index');
+        }
 
         return to_route('dashboard.user.index');
     }

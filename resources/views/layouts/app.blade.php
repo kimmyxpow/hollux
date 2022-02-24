@@ -86,6 +86,22 @@
                             </div>
                         </div>
                     @endif
+                    @if (auth()->user()->hasRole('receptionist'))
+                        <div class="space-y-2">
+                            <span class="font['poppins'] uppercase tracking-widest text-gray-400 font-bold px-6 text-sm">Receptionist</span>
+                            <div class="grid gap-2">
+                                <a href="{{ route('dashboard.receptionist.index') }}" class="{{ !Route::currentRouteNamed('dashboard.receptionist.index') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
+                                    <i class="bx bx-category text-xl {{ !Route::currentRouteNamed('dashboard.receptionist.index') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.receptionist.index') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Dasbboard</span>
+                                </a>
+                            </div>
+                            <div class="grid gap-2">
+                                <a href="{{ route('dashboard.receptionist.reservations.index') }}" class="{{ !Route::currentRouteNamed('dashboard.receptionist.reservations.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
+                                    <i class="bx bx-receipt text-xl {{ !Route::currentRouteNamed('dashboard.receptionist.reservations.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.receptionist.reservations.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Reservation</span>
+                                </a>
+                            </div>
+                    @endif
                     <div class="space-y-2">
                         <span class="font['poppins'] uppercase tracking-widest text-gray-400 font-bold px-6 text-sm">Account</span>
                         <div class="grid gap-2">

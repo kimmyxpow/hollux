@@ -12,6 +12,13 @@ class Reservation extends Model
 
     protected $guarded = ['id'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'], fn ($query, $search) =>
+            $query->whereHas('user', fn ($query) => $query->where('name', 'like', "%$search%"))
+        );
+    }
+
     /**
      * Get the route key for the model.
      *

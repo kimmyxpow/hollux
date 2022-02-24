@@ -52,6 +52,16 @@ Route::namespace('App\Http\Livewire')->group(function () {
                     Route::get('/proof/{reservation:code}', [Proof::class, 'render'])->name('proof');
                 });
             });
+
+            //? Route for receptionist dashboard page
+            Route::prefix('/receptionist')->namespace('Receptionist')->middleware('role:receptionist')->name('receptionist.')->group(function () {
+                //? Displays data statistics
+                Route::get('/', Index::class)->name('index');
+
+                Route::prefix('/reservation')->namespace('Reservation')->name('reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                });
+            });
         });
     });
 
