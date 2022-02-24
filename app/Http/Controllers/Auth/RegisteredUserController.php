@@ -43,6 +43,7 @@ class RegisteredUserController extends Controller
 
         $validatedData['password'] = bcrypt($request->password);
         $validatedData['avatar'] = 'img/avatar/' . substr($request->name, 0, 1) . '.png';
+        $validatedData['code'] = bin2hex(random_bytes(20));
 
         $user = User::create($validatedData);
 

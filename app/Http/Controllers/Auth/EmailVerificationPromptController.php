@@ -16,8 +16,20 @@ class EmailVerificationPromptController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return $request->user()->hasVerifiedEmail()
-                    ? redirect()->intended(RouteServiceProvider::HOME)
-                    : view('auth.verify-email');
+        if ($request->user()->hasVerifiedEmail()) {
+            if (auth()->user()->hasRole('admin')) {
+                return to_route('dashboard.admin.index');
+            }
+
+            if (auth()->user()->hasRole('receptionist')) {
+                return to_route('dashboard.receptionist.index');
+            }
+
+            if (auth()->user()->hasRole('user')) {
+                return to_route('dashboard.user.index');
+            }
+        }
+        
+        return view('auth.verify-email');
     }
 }

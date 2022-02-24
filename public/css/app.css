@@ -1492,6 +1492,9 @@ select {
 .aspect-\[8\/6\] {
   aspect-ratio: 8 / 6;
 }
+.aspect-\[1\/1\] {
+  aspect-ratio: 1 / 1;
+}
 .h-5 {
   height: 1.25rem;
 }
@@ -1601,6 +1604,9 @@ select {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
+}
+.max-w-2xl {
+  max-width: 42rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -2818,6 +2824,10 @@ select {
 
   .sm\:h-20 {
     height: 5rem;
+  }
+
+  .sm\:w-1\/2 {
+    width: 50%;
   }
 
   .sm\:max-w-md {

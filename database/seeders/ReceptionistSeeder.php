@@ -18,6 +18,7 @@ class ReceptionistSeeder extends Seeder
     {
         $receptionist = User::create([
             'name' => 'Receptionist Abi Noval Fauzi',
+            'code' => bin2hex(random_bytes(20)),
             'email' => 'receptionistnovalabi612@gmail.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

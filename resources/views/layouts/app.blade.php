@@ -84,6 +84,12 @@
                                     <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.admin.galeries') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Galery</span>
                                 </a>
                             </div>
+                            <div class="grid gap-2">
+                                <a href="{{ route('dashboard.admin.users.index') }}" class="{{ !Route::currentRouteNamed('dashboard.admin.users.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
+                                    <i class="bx bx-group text-xl {{ !Route::currentRouteNamed('dashboard.admin.users.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.admin.users.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">User</span>
+                                </a>
+                            </div>
                         </div>
                     @endif
                     @if (auth()->user()->hasRole('receptionist'))

@@ -41,6 +41,13 @@ Route::namespace('App\Http\Livewire')->group(function () {
                     Route::get('/create', Create::class)->name('create');
                     Route::get('/{room:code}/edit', Edit::class)->name('edit');
                 });
+
+                //? To manage user data
+                Route::prefix('/users')->namespace('User')->name('users.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                    Route::get('/create', Create::class)->name('create');
+                    Route::get('/{user:code}/edit', Edit::class)->name('edit');
+                });
             });
 
             //? Route for user dashboard page

@@ -8,14 +8,7 @@
                     <i class='bx bx-plus-circle text-8xl text-gray-600'></i>
                     <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">New Image</h2>
                 </div>
-                <div
-                    x-data="{ isUploading: false, progress: 0 }"
-                    x-on:livewire-upload-start="isUploading = true"
-                    x-on:livewire-upload-finish="isUploading = false"
-                    x-on:livewire-upload-error="isUploading = false"
-                    x-on:livewire-upload-progress="progress = $event.detail.progress"
-                    class="space-y-4"
-                >
+                <div x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress" class="space-y-4">
                     <div class="form-control">
                         <label for="image" class="btn w-full text-center">Upload Image</label>
                         <input class="sr-only" type="file" id="image" wire:model='image'>
