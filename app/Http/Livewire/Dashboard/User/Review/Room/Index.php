@@ -12,11 +12,16 @@ class Index extends Component
     public $star;
     public $message;
 
-    protected $listeners = ['review:edited' => 'reviewEdited'];
+    protected $listeners = ['review:edited' => 'reviewEdited', 'review:deleted' => 'reviewDeleted'];
 
     public function reviewEdited()
     {
         $this->dispatchBrowserEvent('review:edited');
+    }
+
+    public function reviewDeleted()
+    {
+        $this->dispatchBrowserEvent('review:deleted');
     }
 
     public function render()
@@ -74,5 +79,21 @@ class Index extends Component
         } else {
             $this->star = $val;
         }
+    }
+
+    public function delete(RoomReview $roomReview)
+    {
+        $this->dispatchBrowserEvent('review:delete');
+        $this->fill([
+            'review' => $roomReview,
+            'star' => $roomReview->star,
+            'message' => $roomReview->message
+        ]);
+    }
+
+    public function destroy()
+    {
+        $this->review->delete();
+        $this->emitSelf('review:deleted');
     }
 }

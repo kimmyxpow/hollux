@@ -14,7 +14,7 @@
                 </p>
                 <div class="flex gap-2">
                     <button class="btn btn-sm ring-offset-gray-100 text-gray-100" wire:click='edit("{{ $review->code }}")'>Edit</button>
-                    <button class="btn btn-sm btn-outline bg-gray-100 ring-offset-gray-100">Delete</button>
+                    <button class="btn btn-sm btn-outline bg-gray-100 ring-offset-gray-100" wire:click='delete("{{ $review->code }}")'>Delete</button>
                 </div>
             </div>
         @empty
@@ -75,6 +75,48 @@
                         <i class='bx bx-check-circle text-8xl text-green-600'></i>
                         <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Review Successfully</h2>
                         <p class="tracking-wide text-gray-600 sm:text-base text-sm">Your review has been successfully submitted! Thank you for your review!</p>
+                    </div>
+                    <div class="flex space-x-2 justify-center">
+                        <button type="button" x-on:click="open = false" class="btn">
+                            Okay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div x-data='{ open: false }'>
+        <div x-show="open" @review:deleted.window="open = false" @review:delete.window="open = true" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
+            <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
+            <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
+                <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4">
+                    <div class="text-center space-y-4">
+                        <i class='bx bx-info-circle text-8xl text-red-600'></i>
+                        <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Are You Sure?</h2>
+                    </div>
+                    <div class="flex space-x-2 justify-center">
+                        <button type="button" wire:click="destroy" class="btn">
+                            Yeah!
+                        </button>
+                        <button type="button" x-on:click="open = false" class="btn btn-outline">
+                            Nah!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div x-data="{ open: false }">
+        <div x-show="open" @review:deleted.window="open = true" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
+            <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
+            <div x-show="open" x-transition.duration.300ms x-on:click="open = false" class="relative min-h-screen flex items-center justify-center p-4">
+                <div x-on:click.stop x-trap.noscroll.inert="open" class="relative max-w-md w-full bg-white rounded-xl p-10 overflow-y-auto space-y-4">
+                    <div class="text-center space-y-4">
+                        <i class='bx bx-check-circle text-8xl text-green-600'></i>
+                        <h2 class="text-3xl font-bold text-gray-800" :id="$id('modal-title')">Deleted Successfully</h2>
+                        <p class="tracking-wide text-gray-600 sm:text-base text-sm">
+                            Review successfully deleted! Thank you for participating in assessing our performance!
+                        </p>
                     </div>
                     <div class="flex space-x-2 justify-center">
                         <button type="button" x-on:click="open = false" class="btn">
