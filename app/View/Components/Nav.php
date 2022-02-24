@@ -24,9 +24,9 @@ class Nav extends Component
                 $this->dashboardLink = route('dashboard.user.index');
             }
 
-            // if (auth()->user()->hasRole('recepsionist')) {
-            //     $this->dashboardLink = route('dashboard.recepsionist');
-            // }
+            if (auth()->user()->hasRole('receptionist')) {
+                $this->dashboardLink = route('dashboard.receptionist.index');
+            }
 
             if (auth()->user()->hasRole('admin')) {
                 $this->dashboardLink = route('dashboard.admin.index');

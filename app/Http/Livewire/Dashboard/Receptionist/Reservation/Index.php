@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Dashboard\Receptionist\Reservation;
 
 use App\Models\Reservation;
+use App\Models\Room;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -57,7 +58,10 @@ class Index extends Component
     public function checkOut($code)
     {
         $reservation = Reservation::firstWhere('code', $code);
+        $room = Room::firstWhere('code', $reservation->room->code);
         $reservation->update(['status' => 'check out']);
+        $room->available = $room->total_rooms - array_sum($room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray());
+        $room->save();
         $this->emitSelf('status:checkout');
     }
 }

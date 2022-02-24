@@ -25,7 +25,10 @@ class Show extends Component
     {
         $this->dispatchBrowserEvent('reservation:created');
         $this->resetAll();
-        $this->fill(['available' => (int) $this->room->total_rooms -  (int) array_sum($this->room->reservations->pluck('total_rooms')->toArray())]);
+        $this->fill(['available' => (int) $this->room->total_rooms -  (int) array_sum($this->room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray())]);
+        $this->room->update([
+            'available' =>  $this->available
+        ]);
     }
 
     public function render()
@@ -38,9 +41,9 @@ class Show extends Component
         $this->fill([
             'room' => $room,
             'minCheckIn' => date('Y-m-d'),
-            'minCheckOut' => Carbon::parse(date('Y-m-d'))->add(1, 'day')->toDateString()
+            'minCheckOut' => Carbon::parse(date('Y-m-d'))->add(1, 'day')->toDateString(),
+            'available' => $this->room->available
         ]);
-        $this->fill(['available' => (int) $this->room->total_rooms -  (int) array_sum($this->room->reservations->pluck('total_rooms')->toArray())]);
         $this->room->views += 1;
         $this->room->save();
     }
@@ -59,9 +62,9 @@ class Show extends Component
         $validatedData['status'] = 'waiting';
         $validatedData['total_price'] = $this->totalPrice;
         $validatedData['code'] = str(uniqid('HLX-') . date('Ymd'))->upper();
-        $validatedData['available'] = (int) $this->room->total_rooms -  (int) array_sum($this->room->reservations->pluck('total_rooms')->toArray());
-
+        
         Reservation::create($validatedData);
+
         $this->emitSelf('reservation:created');
     }
 

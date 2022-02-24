@@ -1,5 +1,6 @@
 <div class="space-y-8">
     <h1 class="text-gray-800 text-3xl font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Reservation</h1>
+    <a class="btn" href="{{ route('rooms.index') }}">New Reservation</a>
     <x-table>
         <thead class="thead">
             <tr>
@@ -25,7 +26,7 @@
                     <td class="td">{{ $reservation->total_rooms }}</td>
                     <td class="td">${{ $reservation->total_price }}</td>
                     <td class="td capitalize">{{ $reservation->status }}</td>
-                    <td class="td">
+                    <td class="td flex space-x-2">
                         <a href="{{ route('dashboard.user.reservations.proof', $reservation->code) }}" class="btn btn-sm">Print</a>
                         @if ($reservation->status === 'waiting')
                             <div x-data='{ open: false }'>
@@ -65,7 +66,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" class="tracking-wide text-gray-600 sm:text-base text-sm">There is nothing here</td>
+                    <td colspan="8" class="td">There is nothing here</td>
                 </tr>
             @endforelse
         </tbody>

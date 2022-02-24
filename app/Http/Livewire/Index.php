@@ -46,6 +46,8 @@ class Index extends Component
 
     public function reservation()
     {
+        $room = Room::firstWhere('code', $this->selected_room);
+
         $rules = [
             'check_in' => ['required', 'date', 'after:' . Carbon::parse($this->minCheckIn)->yesterday()->toDateString()],
             'check_out' => ['required', 'date', 'after:' . Carbon::parse($this->minCheckOut)->yesterday()->toDateString()],
@@ -54,21 +56,24 @@ class Index extends Component
         ];
 
         if ($this->selected_room) {
-            array_push($rules['total_rooms'], 'max:' . Room::firstWhere('code', $this->selected_room)->available);
+            array_push($rules['total_rooms'], 'max:' . $room->available);
         }
 
         $validatedData = $this->validate($rules);
         
-        $validatedData['room_id'] = Room::firstWhere('code', $this->selected_room)->id;
+        $validatedData['room_id'] = $room->id;
         $validatedData['user_id'] = auth()->id();
         $validatedData['date'] = date('Y-m-d');
         $validatedData['status'] = 'waiting';
         $validatedData['total_price'] = $this->totalPrice;
         $validatedData['code'] = str(uniqid('HLX-') . date('Ymd'))->upper();
-        $validatedData['available'] = (int) Room::firstWhere('code', $this->selected_room)->total_rooms -  (int) array_sum(Room::firstWhere('code', $this->selected_room)->reservations->pluck('total_rooms')->toArray());
         unset($validatedData['selected_room']);
 
         Reservation::create($validatedData);
+
+        $available = (int) $room->total_rooms -  (int) array_sum($room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray());
+        $room->update(['available' =>  $available]);
+
         $this->dispatchBrowserEvent('reservation:created');
         $this->resetAll();
     }
@@ -101,18 +106,20 @@ class Index extends Component
 
     public function setPrice()
     {
+        $room = Room::firstWhere('code', $this->selected_room);
         if ($this->selected_room) {
             $this->fill([
-                'room_name' => Room::firstWhere('code', $this->selected_room)->name,
+                'room_name' => $room->name,
                 'totalPrice' => $this->total_rooms != 1
-                    ? (intval(Room::firstWhere('code', $this->selected_room)->price) * intval($this->total_rooms)) * intval($this->totalDays)
-                    : intval(Room::firstWhere('code', $this->selected_room)->price) * intval($this->totalDays)
+                    ? (intval($room->price) * intval($this->total_rooms)) * intval($this->totalDays)
+                    : intval($room->price) * intval($this->totalDays)
             ]);
         }
     }
 
     public function resetAll()
     {
-        $this->resetExcept(['favouriteRooms', 'rooms', 'gallery', 'facilities','minCheckIn', 'minCheckOut', 'selected_room']);
+        $this->resetExcept(['favouriteRooms', 'rooms', 'gallery', 'facilities','minCheckIn', 'minCheckOut']);
+        $this->fill(['selected_room' => Room::first()->code]);
     }
 }

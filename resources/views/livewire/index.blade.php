@@ -11,12 +11,12 @@
                         @if (!auth()->user()->hasRole('user'))
                             <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
                                 <div class="form-control">
-                                    <label class="label" for="">Check In</label>
-                                    <input min="2022-01-01" class="w-full input" type="date">
+                                    <label class="label" for="check_in">Check In</label>
+                                    <input min="2022-01-01" class="w-full input" id="check_in" type="date">
                                 </div>
                                 <div class="form-control">
-                                    <label class="label" for="">Check Out</label>
-                                    <input min="2022-01-01" class="w-full input"  type="date">
+                                    <label class="label" for="check_out">Check Out</label>
+                                    <input min="2022-01-01" class="w-full input" id="check_out" type="date">
                                 </div>
                                 <button x-on:click="open = true" class="btn">Order</button>
                                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
@@ -40,12 +40,18 @@
                         @else
                             <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
                                 <div class="form-control">
-                                    <label class="label" for="">Check In</label>
-                                    <input min="2022-01-01" class="w-full input" type="date">
+                                    <label for="check_in" class="label">Check In</label>
+                                    <input class="input" type="date" name="check_in" id="check_in" wire:model='check_in' wire:change='setCheckIn' min="{{ $minCheckIn }}">
+                                    @error('check_in')
+                                        <span class="invalid">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-control">
-                                    <label class="label" for="">Check Out</label>
-                                    <input min="2022-01-01" class="w-full input"  type="date">
+                                    <label for="check_out" class="label">Check Out</label>
+                                    <input class="input" type="date" name="check_out" id="check_out" wire:model='check_out' wire:change='setCheckOut' min="{{ $minCheckOut }}">
+                                    @error('check_out')
+                                        <span class="invalid">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <button x-on:click="open = true" class="btn">Order</button>
                                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
@@ -61,15 +67,15 @@
                                             </div>
                                             <div class="grid sm:grid-cols-2 gap-4 items-start">
                                                 <div class="form-control">
-                                                    <label for="check_in" class="label">Check In</label>
-                                                    <input class="input" type="date" name="check_in" id="check_in" wire:model='check_in' wire:change='setCheckIn' min="{{ $minCheckIn }}">
+                                                    <label for="check_in_modal" class="label">Check In</label>
+                                                    <input class="input" type="date" name="check_in" id="check_in_modal" wire:model='check_in' wire:change='setCheckIn' min="{{ $minCheckIn }}">
                                                     @error('check_in')
                                                         <span class="invalid">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                                 <div class="form-control">
-                                                    <label for="check_out" class="label">Check Out</label>
-                                                    <input class="input" type="date" name="check_out" id="check_out" wire:model='check_out' wire:change='setCheckOut' min="{{ $minCheckOut }}">
+                                                    <label for="check_out_modal" class="label">Check Out</label>
+                                                    <input class="input" type="date" name="check_out" id="check_out_modal" wire:model='check_out' wire:change='setCheckOut' min="{{ $minCheckOut }}">
                                                     @error('check_out')
                                                         <span class="invalid">{{ $message }}</span>
                                                     @enderror
@@ -147,12 +153,12 @@
                     @else
                         <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
                             <div class="form-control">
-                                <label class="label" for="">Check In</label>
-                                <input min="2022-01-01" class="w-full input" type="date">
+                                <label class="label" for="check_in">Check In</label>
+                                <input min="2022-01-01" class="w-full input" id="check_in" type="date">
                             </div>
                             <div class="form-control">
-                                <label class="label" for="">Check Out</label>
-                                <input min="2022-01-01" class="w-full input"  type="date">
+                                <label class="label" for="check_out">Check Out</label>
+                                <input min="2022-01-01" class="w-full input" id="check_out" type="date">
                             </div>
                             <button x-on:click="open = true" class="btn">Order</button>
                             <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
@@ -180,12 +186,12 @@
                 @else
                     <div x-data="{ open: false }" class="flex sm:flex-row flex-col sm:space-x-2 sm:space-y-0 space-y-2 sm:items-end">
                         <div class="form-control">
-                            <label class="label" for="">Check In</label>
-                            <input min="2022-01-01" class="w-full input" type="date">
+                            <label class="label" for="check_in">Check In</label>
+                            <input min="2022-01-01" class="w-full input" id="check_in" type="date">
                         </div>
                         <div class="form-control">
-                            <label class="label" for="">Check Out</label>
-                            <input min="2022-01-01" class="w-full input"  type="date">
+                            <label class="label" for="check_out">Check Out</label>
+                            <input min="2022-01-01" class="w-full input" id="check_out" type="date">
                         </div>
                         <button x-on:click="open = true" class="btn">Order</button>
                         <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">

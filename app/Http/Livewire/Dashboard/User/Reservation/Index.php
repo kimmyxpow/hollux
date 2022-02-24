@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Dashboard\User\Reservation;
 use Livewire\Component;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithPagination;
 
@@ -25,7 +26,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.dashboard.user.reservation.index', [
-            'reservations' => Reservation::where('user_id', auth()->id())->paginate(5)
+            'reservations' => Reservation::where('user_id', auth()->id())->latest()->paginate(5)
         ])->layoutData(['title' => 'Reservation Dashboard | Hollux']);
     }
 
@@ -36,11 +37,16 @@ class Index extends Component
 
     public function canceled()
     {
-        $this->validate([
-            'message' => ['required']
-        ]);
+        $this->validate(['message' => ['required']]);
 
-        Reservation::firstWhere('code', $this->selected_reservation)->update(['status' => 'canceled', 'message' => $this->message]);
+        $reservation = Reservation::firstWhere('code', $this->selected_reservation);
+        $room = Room::firstWhere('code', $reservation->room->code);
+        
+        $reservation->update(['status' => 'canceled', 'message' => $this->message]);
+
+        $available = $room->total_rooms - array_sum($room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray());
+        $room->update(['available' => $available]);
+
         $this->emitSelf('reservation:canceled');
     }
 }
