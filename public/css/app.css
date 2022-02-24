@@ -1696,14 +1696,14 @@ select {
 .gap-4 {
   gap: 1rem;
 }
+.gap-2 {
+  gap: 0.5rem;
+}
 .gap-1 {
   gap: 0.25rem;
 }
 .gap-10 {
   gap: 2.5rem;
-}
-.gap-2 {
-  gap: 0.5rem;
 }
 .gap-6 {
   gap: 1.5rem;
@@ -1798,9 +1798,6 @@ select {
 }
 .rounded-xl {
   border-radius: 0.75rem;
-}
-.rounded-full {
-  border-radius: 9999px;
 }
 .rounded-lg {
   border-radius: 0.5rem;
@@ -2031,6 +2028,12 @@ select {
 .font-\[\'Quicksand\'\] {
   font-family: 'Quicksand';
 }
+.font-\[\'quicsand\'\] {
+  font-family: 'quicsand';
+}
+.font-\[\'quicksand\'\] {
+  font-family: 'quicksand';
+}
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -2154,6 +2157,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
 .text-gray-100 {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
@@ -2165,10 +2172,6 @@ select {
 .text-orange-500 {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity));
-}
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .text-indigo-600 {
   --tw-text-opacity: 1;
@@ -2247,6 +2250,9 @@ select {
 }
 .ring-offset-2 {
   --tw-ring-offset-width: 2px;
+}
+.ring-offset-gray-100 {
+  --tw-ring-offset-color: #f3f4f6;
 }
 .blur-sm {
   --tw-blur: blur(4px);
@@ -2418,10 +2424,6 @@ select {
 .focus\:border-gray-900:focus {
   --tw-border-opacity: 1;
   border-color: rgb(17 24 39 / var(--tw-border-opacity));
-}
-.focus\:border-gray-800:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(31 41 55 / var(--tw-border-opacity));
 }
 .focus\:border-indigo-700:focus {
   --tw-border-opacity: 1;

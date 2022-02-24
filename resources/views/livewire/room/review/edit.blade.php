@@ -24,5 +24,5 @@
             @enderror
         </div>
     </div>
-    <button class="btn" type="submit">Submit</button>
+    <button class="btn" type="submit">Update</button>
 </form>

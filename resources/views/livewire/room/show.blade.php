@@ -237,14 +237,14 @@
             <h2 class="text-2xl text-gray-800 font-bold">{{ __('Reviews') }}</h2>
             <div class="space-y-6">
                 @forelse ($reviews as $review)
-                    <div class="bg-gray-100 p-6 rounded-xl space-y-2">
+                    <div class="bg-gray-100 p-6 rounded-tr-xl rounded-bl-xl space-y-2">
                         <div>
                             @for ($i=1; $i <= $review->star; $i++)
                                 <i class="bx bx-star text-lg text-orange-500"></i>
                             @endfor
                         </div>
-                        <p class="tracking-wide text-gray-800">
-                            {{ __('"') }}{{ $review->message }}{{ __('"') }}
+                        <p class="tracking-wide text-gray-800 sm:text-base text-sm">
+                            "{!! nl2br($review->message) !!}"
                         </p>
                         <div class="flex items-center gap-2">
                             <img class="w-10 h-10 rounded-tr-xl rounded-bl-xl" src="{{ asset('storage/' . $review->user->avatar) }}" alt="">

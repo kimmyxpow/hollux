@@ -52,6 +52,12 @@ Route::namespace('App\Http\Livewire')->group(function () {
                     Route::get('/', Index::class)->name('index');
                     Route::get('/proof/{reservation:code}', [Proof::class, 'render'])->name('proof');
                 });
+
+                    Route::prefix('/reviews')->namespace('Review')->name('reviews.')->group(function () {
+                        Route::prefix('/rooms')->namespace('Room')->name('rooms.')->group(function () {
+                            Route::get('/', Index::class)->name('index');
+                        });
+                    });
             });
 
             //? Route for receptionist dashboard page

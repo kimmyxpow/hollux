@@ -13,6 +13,16 @@ class RoomReview extends Model
     protected $guarded = ['id'];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'code';
+    }
+
+    /**
      * Get the user that owns the RoomReview
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

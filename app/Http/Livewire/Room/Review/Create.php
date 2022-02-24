@@ -44,6 +44,7 @@ class Create extends Component
         $validatedData['user_id'] = auth()->id();
         $validatedData['room_code'] = $this->room->code;
         $validatedData['date'] = date('Y-m-d');
+        $validatedData['code'] = bin2hex(random_bytes(20));
 
         RoomReview::create($validatedData);
 

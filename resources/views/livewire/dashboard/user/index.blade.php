@@ -27,7 +27,7 @@
         <div class="py-4 px-6 bg-gray-50 rounded-tr-xl rounded-bl-xl">
             <div class="flex items-center gap-4">
                 <div class="h-14 w-14 grid place-items-center rounded-tr-xl rounded-bl-xl bg-gray-800 text-white text-xl">
-                    <i class='bx bx-heart' ></i>
+                    <i class='bx bx-home-heart' ></i>
                 </div>
                 <div class="flex flex-col">
                     <span class="text-gray-600 text-lg">Room Reviews</span>
