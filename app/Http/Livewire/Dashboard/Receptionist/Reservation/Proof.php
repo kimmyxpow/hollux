@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Livewire\Dashboard\User\Reservation;
+namespace App\Http\Livewire\Dashboard\Receptionist\Reservation;
 
-use App\Http\Controllers\Controller;
 use App\Models\Reservation;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Livewire\Component;
 
-class Proof extends Controller
+class Proof extends Component
 {
     public function render(Reservation $reservation)
     {
         $total_days = Carbon::parse($reservation->check_in)->diffInDays($reservation->check_out);
-        $pdf = Pdf::loadView('livewire.dashboard.user.reservation.proof', ['reservation' => $reservation, 'total_days' => $total_days]);
+        $pdf = Pdf::loadView('livewire.dashboard.receptionist.reservation.proof', ['reservation' => $reservation, 'total_days' => $total_days]);
         return $pdf->stream($reservation->code . '.pdf');
     }
 }

@@ -49,7 +49,7 @@
                     <td class="td">${{ $reservation->total_price }}</td>
                     <td class="td capitalize">{{ $reservation->status }}</td>
                     <td class="td flex space-x-2">
-                        <a href="{{ route('dashboard.user.reservations.proof', $reservation->code) }}" class="btn btn-sm">Print</a>
+                        <a target="_blank" rel="noopener noreferrer" href="{{ route('dashboard.receptionist.reservations.proof', $reservation->code) }}" class="btn btn-sm">Print</a>
                         @if ($reservation->status === 'waiting')
                             <button wire:click='confirm("{{ $reservation->code }}")' class="btn btn-sm btn-outline">Confirm</button>
                         @endif

@@ -11,7 +11,7 @@
                 <th scope="col" class="th">Total Room(s)</th>
                 <th scope="col" class="th">Total Price</th>
                 <th scope="col" class="th">Status</th>
-                <th scope="col" class="th"></th>
+                <th scope="col" class="th">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
                     <td class="td">${{ $reservation->total_price }}</td>
                     <td class="td capitalize">{{ $reservation->status }}</td>
                     <td class="td flex space-x-2">
-                        <a href="{{ route('dashboard.user.reservations.proof', $reservation->code) }}" class="btn btn-sm">Print</a>
+                        <a target="_blank" rel="noopener noreferrer" href="{{ route('dashboard.user.reservations.proof', $reservation->code) }}" class="btn btn-sm">Print</a>
                         @if ($reservation->status === 'waiting')
                             <div x-data='{ open: false }'>
                                 <button x-on:click='open = true' wire:click='cancel("{{ $reservation->code }}")' class="btn btn-sm btn-outline">Cancel</button>
