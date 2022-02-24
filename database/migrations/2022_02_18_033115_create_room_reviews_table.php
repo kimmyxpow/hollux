@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('room_code');
             $table->foreign('room_code')->references('code')->on('rooms')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('message');
-            $table->string('rate');
+            $table->string('star');
             $table->date('date');
             $table->timestamps();
         });

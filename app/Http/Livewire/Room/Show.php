@@ -18,8 +18,9 @@ class Show extends Component
     public $totalPrice;
     public $available;
     public $totalDays;
+    public $reviews;
 
-    protected $listeners = ['reservation:created' => 'reservationCreated'];
+    protected $listeners = ['reservation:created' => 'reservationCreated', 'review:created' => 'reviewCreated', 'review:edited' => 'reviewEdited'];
 
     public function reservationCreated()
     {
@@ -28,6 +29,24 @@ class Show extends Component
         $this->fill(['available' => (int) $this->room->total_rooms -  (int) array_sum($this->room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray())]);
         $this->room->update([
             'available' =>  $this->available
+        ]);
+    }
+
+    public function reviewCreated()
+    {
+        $this->dispatchBrowserEvent('review:created');
+        $this->fill([
+            'room' => $this->room,
+            'reviews' => $this->room->reviews
+        ]);
+    }
+
+    public function reviewEdited()
+    {
+        $this->dispatchBrowserEvent('review:edited');
+        $this->fill([
+            'room' => $this->room,
+            'reviews' => $this->room->reviews
         ]);
     }
 
@@ -42,7 +61,8 @@ class Show extends Component
             'room' => $room,
             'minCheckIn' => date('Y-m-d'),
             'minCheckOut' => Carbon::parse(date('Y-m-d'))->add(1, 'day')->toDateString(),
-            'available' => $this->room->available
+            'available' => $this->room->available,
+            'reviews' => $room->reviews
         ]);
         $this->room->views += 1;
         $this->room->save();
