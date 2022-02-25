@@ -42,7 +42,7 @@ The user here is a guest for this Hollux hotel. Users can make online reservatio
 
 If you want to clone this repository, go ahead. But don't admit that this is your creation :)
 
-# Download assets for seeder
+### Download assets for seeder
 
 I have provided a seeder for this application, so I have also provided assets to support the seeder, if you want to download the assets, you can clone the [hollux-assets](https://github.com/abinoval/hollux-assets) respository in the storage/app/public folder and rename the hollux-assets folder to img.
 
