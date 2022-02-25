@@ -35,7 +35,7 @@ The user here is a guest for this Hollux hotel. Users can make online reservatio
 
 If you want to clone this repository, go ahead. But don't admit that this is your creation :)
 
-## Download assets for seeder
+# Download assets for seeder
 
 I have provided a seeder for this application, so I have also provided assets to support the seeder, if you want to download the assets, you can clone the [hollux-assets](https://github.com/abinoval/hollux-assets) respository in the storage/app/public folder and rename the hollux-assets folder to img.
 
@@ -45,7 +45,7 @@ Don't forget to stop by my other projects! Don't forget to star too *hehe*
 
 ### Image to Palette
 
-![Image to Palette](https://i.postimg.cc/PfvSvfNc/Screenshot-1357.png)
+![Image to Palette](https://i.postimg.cc/44rsp3Ph/Screenshot-1362.png)
 
 Link: [Github](https://github.com/abinoval/image-to-palette) | [Website](https://ksana.in/itp)
 
@@ -69,7 +69,7 @@ Desc: PowQuran is an online Al-Quran that can be accessed on a cellphone or lapt
 
 ### Kartini Tribute Page
 
-![Screenshot-1361.png](https://i.postimg.cc/D0zF5WDq/Screenshot-1361.png)
+![Kartini Tribute Page](https://i.postimg.cc/D0zF5WDq/Screenshot-1361.png)
 
 Link: [Github](https://github.com/abinoval/kartini-tribute-page) | [Website](http://radenayukartini.great-site.net/)
 
