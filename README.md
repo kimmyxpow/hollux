@@ -1,3 +1,5 @@
+![Hollux](https://i.postimg.cc/SKm6ZkSy/Screenshot-1355.png)
+
 # Hollux
 
 Hollux is a hotel website that can be used for online reservations. Built using the [TALL Stack](https://tallstack.dev/): [Tailwind CSS 3](https://tailwindcss.com/), [AlpineJS 3](https://alpinejs.dev/), [Livewire 2](https://laravel-livewire.com/), [Laravel 9](https://laravel.com/). I actually made the UI here myself using Tailwind CSS and AplineJS without using any templates at all.
@@ -23,7 +25,7 @@ The user here is a guest for this Hollux hotel. Users can make online reservatio
 - Doing room CRUD (Finished)
 - Doing facility CRUD (Finished)
 - Doing gallery CRUD (Finished)
-- Doing user CRUD (Not finished yet)
+- Doing user CRUD (Finished)
 - Updating the about page via the admin dashboard (Finished)
 - Make a reservation (Finished)
 - Check reservation data (Finished)
@@ -43,11 +45,15 @@ Don't forget to stop by my other projects! Don't forget to star too *hehe*
 
 ### Image to Palette
 
+![Image to Palette](https://i.postimg.cc/PfvSvfNc/Screenshot-1357.png)
+
 Link: [Github](https://github.com/abinoval/image-to-palette) | [Website](https://ksana.in/itp)
 
 Desc: This website is a website for generating colors/palettes from inputted images.
 
 ### My Code
+
+![My Code](https://i.postimg.cc/GpNkbYPp/Screenshot-1359.png)
 
 Link: [Github](https://github.com/abinoval/my-code) | [Website](http://mycode.great-site.net/)
 
@@ -55,17 +61,23 @@ Desc: Code snippets that can be used to share your code easily.
 
 ### PowQuran
 
+![PowQuran](https://i.postimg.cc/0NHCrhvP/Screenshot-1358.png)
+
 Link: [Github](https://github.com/abinoval/PowQuran) | [Website](https://abinoval.github.io/PowQuran/)
 
 Desc: PowQuran is an online Al-Quran that can be accessed on a cellphone or laptop easily, recite and listen to the holy verses wherever you are!
 
 ### Kartini Tribute Page
 
+![Screenshot-1361.png](https://i.postimg.cc/D0zF5WDq/Screenshot-1361.png)
+
 Link: [Github](https://github.com/abinoval/kartini-tribute-page) | [Website](http://radenayukartini.great-site.net/)
 
 Desc: Tribute Page R.A. Kartini by me :)
 
 ### My Name
+
+![My Name](https://i.postimg.cc/pLcjB86B/Screenshot-1360.png)
 
 Link: [Github](https://github.com/abinoval/myname) | [Website](https://ksana.in/my)
 
