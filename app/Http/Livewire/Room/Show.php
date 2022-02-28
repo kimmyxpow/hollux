@@ -26,7 +26,11 @@ class Show extends Component
     {
         $this->dispatchBrowserEvent('reservation:created');
         $this->resetAll();
-        $this->fill(['available' => (int) $this->room->total_rooms -  (int) array_sum($this->room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray())]);
+
+        $available = (int) $this->room->total_rooms -  (int) array_sum($this->room->reservations->where('status', '<>', 'canceled')->where('status', '<>', 'check out')->pluck('total_rooms')->toArray());
+        
+        $this->fill(['available' => $available]);
+
         $this->room->update([
             'available' =>  $this->available
         ]);
@@ -125,6 +129,6 @@ class Show extends Component
 
     public function resetAll()
     {
-        $this->resetExcept(['room', 'minCheckIn', 'minCheckOut']);
+        $this->resetExcept(['room', 'minCheckIn', 'minCheckOut', 'reviews']);
     }
 }
